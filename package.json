@@ -1,0 +1,19 @@
+{
+  "name": "jobseekerapplication",
+  "version": "1.0.0",
+  "description": "Job Seeker Application where users can find tech roles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aosborne17/JobSeekerApplication.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aosborne17/JobSeekerApplication/issues"
+  },
+  "homepage": "https://github.com/aosborne17/JobSeekerApplication#readme"
+}
