@@ -2,9 +2,10 @@
   "name": "jobseekerapplication",
   "version": "1.0.0",
   "description": "Job Seeker Application where users can find tech roles",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-linux": "nodemon backend/server.js",
+    "start-linux": "NODE_ENV=production node backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/aosborne17/JobSeekerApplication/issues"
   },
-  "homepage": "https://github.com/aosborne17/JobSeekerApplication#readme"
+  "homepage": "https://github.com/aosborne17/JobSeekerApplication#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.9.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
