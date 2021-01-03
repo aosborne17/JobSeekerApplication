@@ -8,7 +8,6 @@
 
 - E20
 
-- Player 25
 
 - evol
 
