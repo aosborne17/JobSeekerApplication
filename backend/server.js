@@ -29,7 +29,7 @@ app.use(errorHandler);
 const PORT = 5000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Server is up and running');
 });
 
 app.listen(
