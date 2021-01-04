@@ -50,3 +50,26 @@ git push origin ( new-branch-name OR main)
 
 - Run `npm install` in root and frontend directory
 - Copy config.env.env file and past in config.env ( local config file ) and set env variables
+
+
+```JSON
+{
+    "firstName": "Andrew",
+    "lastName": "Osborne",
+    "email": "andrew@example.com",
+    "password": "123456",
+    "dateOfBirth": "15/02/1999",
+    "contactNumber": "123456789",
+    "resume": [{
+        "githubLink": "https://github.com/aosborne17",
+        "linkedinLink": "https://www.linkedin.com/in/andrew-osborne-52a46917b",
+        "resumeBody": "Full stack dev, passionate, hardworker!",
+        "yearsOfExperience": 1
+    }],
+    "appRank": [{
+        "avgScore": 80,
+        "noOfTestsAttempted": 8
+    }],
+    "countryOfResidence": "United Kingdom"
+}
+```

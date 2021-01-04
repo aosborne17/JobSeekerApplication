@@ -19,3 +19,8 @@
 ### Guidelines
 
 - For the notes and instructions for the code added, check [Here](/guidelines) Just look guidelines
+
+admin
+admin
+aosborne99@gmail.com
+
