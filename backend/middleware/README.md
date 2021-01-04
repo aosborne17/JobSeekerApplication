@@ -1,1 +1,3 @@
-Just here to ensure folder was pushed to GH
+### error.js
+
+Handle all error raised at any point by code
