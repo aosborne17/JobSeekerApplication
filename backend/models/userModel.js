@@ -26,6 +26,17 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    resume: [{
+        githubLink: {type: String, required: false},
+        linkedinLink: {type: String, required: false},
+        resumeBody: {type: String, required: true},
+        yearsOfExperience: {type: Number, required: true},
+    }],
+    appRank: [{
+        avgScore: {type: Number},
+        noOfTestsAttempted: {type: Number},
+    }]
+    ,
     countryOfResidence: {
         type: String,
         required: true
