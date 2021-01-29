@@ -1,21 +1,25 @@
 import React from 'react';
 import Header from './components/Header';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './components/Login';
+import Home from './components/Home';
+import Register from './components/Register';
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <div className='app'>
-        <Header />
-        <div className='app__body'>
-          <Route exact path='/login' component={LoginScreen} />
-          <Route exact path='/' component={HomeScreen} />
-          {/* <Route exact path='/product/:id' component={ProductScreen} />
-          <Route exact path='/cart/:id?' component={CartScreen} /> */}
+      <Switch>
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
+        <div className='app'>
+          <Header />
+          <div className='app__body'>
+            {/* add toggle */}
+            <Route exact path='/' component={Home} />
+          </div>
         </div>
-      </div>
+      </Switch>
     </Router>
   );
 };

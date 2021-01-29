@@ -1,6 +1,6 @@
 ## Backend Gitignore
-.env
-/node_modules
+/backend/.env
+/backend/node_modules
 /config/config.env
 
 ## React Gitignore

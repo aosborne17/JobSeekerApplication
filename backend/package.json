@@ -2,11 +2,10 @@
   "name": "jobseekerapplication",
   "version": "1.0.0",
   "description": "Job Seeker Application where users can find tech roles",
-  "main": "backend/server.js",
-
+  "main": "server.js",
   "scripts": {
-    "dev-linux": "nodemon backend/server.js",
-    "start-linux": "NODE_ENV=production node backend/server.js"
+    "dev-linux": "nodemon server.js",
+    "start-linux": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
