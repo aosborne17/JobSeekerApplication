@@ -2,6 +2,16 @@
   height: 100vh;
   border: black solid 3px;
   background-color: rgb(128, 51, 128);
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__title {
+  position: absolute;
+  top: 10%;
 }
 
 .glass {
@@ -13,16 +23,9 @@
   border-radius: 10px;
 }
 
-.register__container {
-  margin: 0 auto;
+.register__chooseAccount {
   width: 500px;
-  position: relative;
-  top: 40%;
-  transform: translateY(-50%);
   text-align: center;
-}
-
-.register__choosePackage {
   border: 2px solid black;
 }
 
@@ -30,6 +33,12 @@
   display: flex;
   justify-content: space-evenly;
   cursor: pointer;
+}
+
+.register__accountDetails {
+  width: 500px;
+  text-align: center;
+  border: 2px solid black;
 }
 
 .register__form {
@@ -50,4 +59,39 @@
   border-radius: 10px;
   outline: none;
   border: none;
+}
+
+.register__choosePackage {
+  width: 80%;
+  text-align: center;
+  height: 500px;
+}
+
+.register__packageSection {
+  height: 500px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.register__packageImages {
+  height: 200px;
+  width: 200px;
+}
+
+.card {
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.register__choosePackage h1 {
+  /* position: absolute;
+  top: 0; */
+  margin-bottom: 20px;
 }

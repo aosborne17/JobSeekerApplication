@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './Register.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import free from './corruption.png';
+import members from './dollar.png';
+import premium from './money.png';
 const containerVariants = {
   hidden: {
     opacity: 0,
@@ -16,10 +19,10 @@ const containerVariants = {
       when: 'beforeChildren',
       staggerChildren: 1,
     },
-    exit: {
-      x: '-100vw',
-      transition: { ease: 'easeInOut' },
-    },
+    // exit: {
+    //   x: '-100vw',
+    //   transition: { ease: 'easeInOut' },
+    // },
   },
 };
 
@@ -53,18 +56,20 @@ const buttonVariants = {
   },
 };
 
+// note to self, all the motion.divs need keys otherwise it gets confused
+
 const Register = () => {
   const [slideNumber, setSlideNumber] = useState(1);
-  const [packageChoice, setPackageChoice] = useState('');
+  const [accountChoice, setAccountChoice] = useState('');
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const getPackage = (chosenPackage) => {
+  const getAccount = (chosenAccount) => {
     setSlideNumber(2);
-    setPackageChoice(chosenPackage);
+    setAccountChoice(chosenAccount);
   };
 
   const handleSubmit = (e) => {
@@ -73,41 +78,44 @@ const Register = () => {
     setSlideNumber(3);
   };
 
+  const getPackage = () => {
+    setSlideNumber(4);
+  };
+
   const firstSlide = () => {
     return (
-      <AnimatePresence>
-        <motion.div
-          exit='exit'
-          className='register__choosePackage glass'
-          variants={containerVariants}
-          initial='hidden'
-          animate='visible'
-        >
-          <div className='register__Options'>
-            <motion.h1
-              // whileHover='hover'
-              variants={childVariants}
-              onClick={() => getPackage('Business')}
-            >
-              Business
-            </motion.h1>
-            <motion.h1
-              // whileHover='hover'
-              variants={childVariants}
-              onClick={() => getPackage('Personal')}
-            >
-              Personal
-            </motion.h1>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        key={1}
+        className='register__chooseAccount glass'
+        variants={containerVariants}
+        initial='hidden'
+        animate='visible'
+      >
+        <div className='register__Options'>
+          <motion.h1
+            // whileHover='hover'
+            variants={childVariants}
+            onClick={() => getAccount('Business')}
+          >
+            Business
+          </motion.h1>
+          <motion.h1
+            // whileHover='hover'
+            variants={childVariants}
+            onClick={() => getAccount('Personal')}
+          >
+            Personal
+          </motion.h1>
+        </div>
+      </motion.div>
     );
   };
 
   const secondSlide = () => {
     return (
       <motion.div
-        className='register__choosePackage glass'
+        key={2}
+        className='register__accountDetails glass'
         variants={containerVariants}
         initial='hidden'
         animate='visible'
@@ -138,27 +146,60 @@ const Register = () => {
         initial='hidden'
         animate='visible'
       >
-        <h1>Fill In Your Information</h1>
+        <h1>Choose Your Package</h1>
+
+        <section className='register__packageSection'>
+          <div className='register__freePackage card'>
+            <img className='register__packageImages' src={free} alt='' />
+            <h2>Free Package</h2>
+
+            <ul>
+              <li>Access to Dashboard</li>
+              <li>5 Weekly Attempts At Quiz</li>
+              <li>3 Weekly Applications</li>
+            </ul>
+          </div>
+          <div className='register__membersPackage card'>
+            <img className='register__packageImages' src={members} alt='' />
+            <h2>Members Package</h2>
+            <ul>
+              <li>Access to Dashboard</li>
+              <li>5 Weekly Attempts At Quiz</li>
+              <li>3 Weekly Applications</li>
+            </ul>
+          </div>
+          <div className='register__premiumPackage card'>
+            <img className='register__packageImages' src={premium} alt='' />
+            <h2>Premium Package</h2>
+            <ul>
+              <li>Access to Dashboard</li>
+              <li>Unlimited Weekly Attempts At Quiz</li>
+              <li>Unlimited Weekly Applications</li>
+            </ul>
+          </div>
+        </section>
       </motion.div>
+    );
+  };
+
+  const finalSlide = () => {
+    return (
+      <div>Thank You For Your Application, We are Creating your account</div>
     );
   };
   console.log(name, password, confirmPassword);
   return (
     <div className='register'>
-      <h1>Register</h1>
-      <div className='register__container'>
-        <div>
-          {/* <h2>Business</h2>
-          <h2>Personal</h2> */}
-          {slideNumber === 1
-            ? firstSlide()
-            : slideNumber === 2
-            ? secondSlide()
-            : slideNumber === 3
-            ? thirdSlide()
-            : ''}
-        </div>
-      </div>
+      <h1 className='register__title'>Register</h1>
+      {slideNumber === 1
+        ? firstSlide()
+        : slideNumber === 2
+        ? secondSlide()
+        : slideNumber === 3
+        ? thirdSlide()
+        : slideNumber === 4
+        ? finalSlide()
+        : ''}
     </div>
   );
 };
