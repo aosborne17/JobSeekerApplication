@@ -69,14 +69,15 @@
 
 .register__packageSection {
   height: 500px;
+  background-color: grey;
   margin-top: 30px;
   display: flex;
   justify-content: space-evenly;
 }
 
 .register__packageImages {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .card {
@@ -95,3 +96,9 @@ li {
   top: 0; */
   margin-bottom: 20px;
 }
+
+/* @media screen and (max-width: 780px) {
+  .register__packageSection {
+    flex-direction: column;
+  }
+} */

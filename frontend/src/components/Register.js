@@ -158,6 +158,8 @@ const Register = () => {
               <li>5 Weekly Attempts At Quiz</li>
               <li>3 Weekly Applications</li>
             </ul>
+
+            <button>Subscribe</button>
           </div>
           <div className='register__membersPackage card'>
             <img className='register__packageImages' src={members} alt='' />
@@ -167,6 +169,8 @@ const Register = () => {
               <li>5 Weekly Attempts At Quiz</li>
               <li>3 Weekly Applications</li>
             </ul>
+
+            <button>Subscribe</button>
           </div>
           <div className='register__premiumPackage card'>
             <img className='register__packageImages' src={premium} alt='' />
@@ -175,6 +179,8 @@ const Register = () => {
               <li>Access to Dashboard</li>
               <li>Unlimited Weekly Attempts At Quiz</li>
               <li>Unlimited Weekly Applications</li>
+
+              <button>Subscribe</button>
             </ul>
           </div>
         </section>
@@ -184,7 +190,10 @@ const Register = () => {
 
   const finalSlide = () => {
     return (
-      <div>Thank You For Your Application, We are Creating your account</div>
+      <>
+        {/* {loading && <Loader />} */}
+        <div>Thank You For Your Application, We are Creating your account</div>
+      </>
     );
   };
   console.log(name, password, confirmPassword);

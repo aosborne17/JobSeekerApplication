@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Register from './components/Register';
 import './App.css';
+import Landing from './components/Landing';
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
           <Header />
           <div className='app__body'>
             {/* add toggle */}
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/home' component={Home} />
           </div>
         </div>
       </Switch>

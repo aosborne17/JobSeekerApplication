@@ -1,11 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Header.css';
+import logo from './snapchat.png';
 
 const Header = () => {
   return (
-    <div className='header'>
-      <h1>Job Seeker Application</h1>
-    </div>
+    <nav className='header'>
+      <div className='header__logo'>
+        <img className='header__image' src={logo} alt='' />
+      </div>
+
+      <div className='header__right'>
+        <HashLink to='#ourMission'>Our Mission</HashLink>
+        <HashLink to='#reviews'>Reviews</HashLink>
+      </div>
+    </nav>
   );
 };
 
