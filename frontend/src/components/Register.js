@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Register.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import free from './corruption.png';
 import members from './dollar.png';
@@ -41,18 +41,6 @@ const childVariants = {
   },
   visible: {
     opacity: 1,
-  },
-};
-
-const buttonVariants = {
-  hover: {
-    scale: [1, 1.1, 1, 1.1, 1, 1.8, 1],
-    textShadow: '0px 0px 8px rgb(255,255,255)',
-    boxShadow: '0px 0px 8px rgb(255,255,255)',
-    transition: {
-      duration: 0.8,
-      yoyo: Infinity,
-    },
   },
 };
 
