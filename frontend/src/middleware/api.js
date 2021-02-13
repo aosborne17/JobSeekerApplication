@@ -25,7 +25,7 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
   const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 
   // axios default configs
-  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || '';
+  axios.defaults.baseURL = 'http://127.0.0.1:5000' || '';
   // this allows us to post data to our server via json body
   axios.defaults.headers.common['Content-Type'] = 'application/json';
   // we are setting up our bearer auth token which we will later use to access our user
@@ -34,6 +34,7 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
   if (label) {
     // dispatching this action will set loading to true and show our spinner
     dispatch(apiStart(label));
+    console.log(data);
   }
 
   axios

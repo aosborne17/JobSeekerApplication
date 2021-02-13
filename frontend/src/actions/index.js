@@ -1,5 +1,10 @@
-import store from '../store';
-import { SET_ARTICLE_DETAILS, API, FETCH_ARTICLE_DETAILS } from './types';
+// import store from '../store';
+import {
+  SET_LOGIN_DETAILS,
+  API,
+  FETCH_ARTICLE_DETAILS,
+  FETCH_LOADING_DETAILS,
+} from './types';
 
 // export function fetchArticleDetails() {
 //   return apiAction({
@@ -12,18 +17,21 @@ import { SET_ARTICLE_DETAILS, API, FETCH_ARTICLE_DETAILS } from './types';
 
 // ES6 version
 
-export const fetchArticleDetails = () =>
+export const postLoginDetails = ({ username, password }) =>
   apiAction({
     // so all we have to do is pass in the corresponding url for the backend request imm trying to do
-    url: 'https://api.myjson.com/bins/19dtxc',
-    onSuccess: setArticleDetails,
-    onFailure: () => console.log('Error occured loading articles'),
-    label: FETCH_ARTICLE_DETAILS,
+    url: '/api/v1/users',
+    method: 'POST',
+    data: { username, password },
+    onSuccess: setLoginDetails,
+    onFailure: () => console.log('Error occured logging in'),
+    label: FETCH_LOADING_DETAILS,
   });
 
-function setArticleDetails(data) {
+function setLoginDetails(data) {
+  console.log(data);
   return {
-    type: SET_ARTICLE_DETAILS,
+    type: SET_LOGIN_DETAILS,
     payload: data,
   };
 }
@@ -38,7 +46,7 @@ export const fetchAllPosts = () =>
     label: FETCH_ARTICLE_DETAILS,
   });
 
-const setAllPosts = () => {
+const setAllPosts = (data) => {
   return {
     type: 'GET_POSTS',
     payload: data,

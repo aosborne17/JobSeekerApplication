@@ -5,8 +5,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
 import Landing from './components/Landing';
-import TestimonialScreen from './screens/TestimonialScreen';
 import HomeScreen from './screens/HomeScreen';
+import UserScreen from './screens/UserScreen';
 
 const App = () => {
   return (
@@ -21,9 +21,8 @@ const App = () => {
             <Route exact path='/home'>
               <HomeScreen />
             </Route>
-
-            <Route exact path='/testimonial/:id'>
-              <TestimonialScreen />
+            <Route exact path='/:id'>
+              <UserScreen />
             </Route>
           </div>
         </div>
