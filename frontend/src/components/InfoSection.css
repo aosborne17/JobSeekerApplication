@@ -1,0 +1,12 @@
+.infoSection {
+  flex: 0.2;
+  top: 80px;
+  position: sticky;
+
+  height: fit-content;
+}
+
+.infoSection__bottom {
+  border: 1px solid gray;
+  border-radius: 10px;
+}

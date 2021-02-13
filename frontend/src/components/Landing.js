@@ -1,5 +1,7 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 import './Landing.css';
+import logo from './snapchat.png';
 
 const Landing = () => {
   // Initialize an object with properties and methods
@@ -30,19 +32,31 @@ const Landing = () => {
     console.log(value);
   });
   return (
-    <div className='landing'>
-      <section className='landing__welcome' id='welcome'>
-        <h1>DevUnite</h1>
-      </section>
+    <>
+      <nav className='landingHeader'>
+        <div className='landingHeader__logo'>
+          <img className='landingHeader__image' src={logo} alt='' />
+        </div>
 
-      <section className='landing__ourMission' id='ourMission'>
-        <h1>Our Mission</h1>
-      </section>
+        <div className='landingHeader__right'>
+          <HashLink to='#ourMission'>Our Mission</HashLink>
+          <HashLink to='#reviews'>Reviews</HashLink>
+        </div>
+      </nav>
+      <div className='landing'>
+        <section className='landing__welcome' id='welcome'>
+          <h1>DevUnite</h1>
+        </section>
 
-      <section className='landing__reviews' id='reviews'>
-        <h1>Reviews</h1>
-      </section>
-    </div>
+        <section className='landing__ourMission' id='ourMission'>
+          <h1>Our Mission</h1>
+        </section>
+
+        <section className='landing__reviews' id='reviews'>
+          <h1>Reviews</h1>
+        </section>
+      </div>
+    </>
   );
 };
 

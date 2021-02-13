@@ -1,0 +1,28 @@
+.activityInfo {
+  margin-top: 25px;
+}
+
+.activityInfo_recentItem {
+  display: flex;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bolder;
+  padding: 5px;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.recentItem__hash {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.recentItem__topic {
+  font-size: 13px;
+}
+
+.activityInfo_recentItem:hover {
+  color: black;
+  background-color: whitesmoke;
+  cursor: pointer;
+}

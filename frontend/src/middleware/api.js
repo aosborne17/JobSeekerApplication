@@ -13,7 +13,7 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
     url, // the endpoint to be hit
     method, // what type of api request isit
     data, // any data we want to send to the serve
-    accessToken,
+    // accessToken,
     onSuccess, // any action creators we wish to run if the api call is successful
     onFailure, // any action creators we wish to run if the api call fails
     label, // a name we can give to the request
