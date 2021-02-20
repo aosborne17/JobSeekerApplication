@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Feed.css';
 import InputFeed from './InputFeed';
 import Post from './Post';
 
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function getPosts() {
+      setPosts([]);
+    }
+
+    getPosts();
+  }, []);
   return (
     <div className='feed'>
       <InputFeed />

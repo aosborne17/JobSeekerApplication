@@ -1,43 +1,61 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { postLoginDetails } from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Button from './Button';
 import Form from './Form';
 import FormInput from './FormInput';
 import './Login.css';
+import { postLoginDetails } from '../actions';
 
 const Login = () => {
   const history = useHistory();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  const setInput = (setter) => (value) => {
-    setter(value);
-  };
+  const loginReducer = useSelector((state) => state.login);
+  const { isLoadingData, user, error } = loginReducer;
+  console.log(loginReducer, 'login reducer');
+
+  // const setInput = (setter) => (value) => {
+  //   setter(value);
+  // };
+
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const username = usernameRef.current.value;
+    const password = passwordRef.current.value;
     console.log(username);
     console.log(password);
-    postLoginDetails({ username: username, password: password });
-    history.push('/home');
+    dispatch(postLoginDetails({ username, password }));
+    // history.push('/home');
   };
+
+  console.log(isLoadingData);
+  console.log(user);
+  console.log(error);
 
   return (
     <div className='login'>
-      <Form onSubmit={handleSubmit}>
-        <FormInput
-          type='text'
-          placeholder='username'
-          onChange={setInput(setUsername)}
-        />
-        <FormInput
-          type='password'
-          placeholder='password'
-          onChange={setInput(setPassword)}
-        />
-        <Button type='submit'>Login</Button>
-      </Form>
+      {isLoadingData ? (
+        <h1>Loading!!</h1>
+      ) : (
+        <Form onSubmit={handleSubmit}>
+          <FormInput
+            type='text'
+            placeholder='username'
+            inputRef={usernameRef}
+          />
+          <FormInput
+            type='password'
+            placeholder='password'
+            inputRef={passwordRef}
+          />
+          <Button type='submit'>Login</Button>
+        </Form>
+      )}
     </div>
   );
 };

@@ -2,35 +2,34 @@
   background-color: white;
   padding: 10px;
   padding-bottom: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.inputFeed__formContainer {
+.inputFeed__Container {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.inputFeed__Avatar {
+  height: 45px !important;
+  width: 45px !important;
+  cursor: pointer;
+}
+
+.inputFeed__Button {
+  text-align: left;
   border: 1px solid lightgray;
   color: gray;
-  padding: 10px;
+  padding: 12.5px;
   border-radius: 30px;
-  padding-left: 15px;
-}
-
-.inputFeed__formContainer > form {
-  display: flex;
-  width: 100%;
-}
-
-.inputFeed__formContainer > form > input {
-  border: none;
+  flex: 0.9;
+  cursor: pointer;
   outline: none;
-  flex: 1;
-  font-weight: 600;
 }
 
-.inputFeed__formContainer > form > button {
-  display: none;
-}
-
-.inputFeed__options {
+.inputFeed__Options {
   display: flex;
   justify-content: space-evenly;
 }

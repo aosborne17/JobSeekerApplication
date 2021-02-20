@@ -1,21 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-const FormInput = ({ type, placeholder, onChange }) => {
-  const inputRef = useRef(null);
-
-  const handleChange = () => {
-    if (onChange) {
-      onChange(inputRef.current.value);
-    }
-  };
-  return (
-    <input
-      type={type}
-      ref={inputRef}
-      placeholder={placeholder}
-      onChange={handleChange}
-    ></input>
-  );
+const FormInput = ({ type, placeholder, onChange, inputRef }) => {
+  return <input type={type} ref={inputRef} placeholder={placeholder}></input>;
 };
 
 export default FormInput;

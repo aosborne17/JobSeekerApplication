@@ -1,14 +1,17 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
-const connectDB = require('./config/db.js') 
+const connectDB = require('./config/db.js');
 
 // Middleware import
 const errorHandler = require('./middleware/error');
 
 // Changed the dotenv config as it wasn't working previously
-dotenv.config()
+dotenv.config();
+
+app.use(cors());
 
 // Body parser
 app.use(express.json());
@@ -19,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Connect to database
-connectDB()
+connectDB();
 
 // Rout files
 const test = require('./routes/test');
@@ -27,17 +30,13 @@ const test = require('./routes/test');
 // Mount routers
 app.use('/api/v1/test', test);
 
-
 // Importing user route and mounting it
-const userRoutes = require('./routes/userRoutes.js')
+const userRoutes = require('./routes/userRoutes.js');
 
-app.use('/api/v1/users', userRoutes)
-
+app.use('/api/v1/users', userRoutes);
 
 // Handle all error
 app.use(errorHandler);
-
-
 
 app.get('/', (req, res) => {
   res.send('Server is up and running');
@@ -45,9 +44,10 @@ app.get('/', (req, res) => {
 
 app.listen(
   process.env.PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${process.env.PORT}`)
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${process.env.PORT}`
+  )
 );
-
 
 // Handle unhandled promise rejections
 // process.on('unhandledRejection', (err, promise) => {
